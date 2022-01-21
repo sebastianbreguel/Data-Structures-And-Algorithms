@@ -56,12 +56,12 @@ dkms.conf
 *.png
 
 .vscode
-*.py
-tests
-output
-solutions
-markers
+# *.py
+# tests
+# output
+# solutions
+# markers
 obj
-*.json
+# *.json
 *.pdf
 *.Identifier
