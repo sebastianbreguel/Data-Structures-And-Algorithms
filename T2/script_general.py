@@ -24,7 +24,7 @@ for num in range(len(back)):
     test = back[num]
     out = output[num]
     print(f"\n{test}\n")
-    os.system(f"time ./pottermagic B tests/backtracking/tests/{test} output.txt")
-    # os.system(f" python3 check_backtracking.py output/backtracking/{test}")
+    os.system(f"time ./pottermagic B tests/backtracking/tests/{test} output/backtracking/{test}")
+    os.system(f" python3 check_backtracking.py output/backtracking/{test}")
     # break
 

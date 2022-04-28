@@ -35,9 +35,8 @@ CFLAGS=-Wunused -Wall $(OPT)
 # Matemáticas (C Math library)
 MTH=-lm
 # Portable Network Graphics (PNG)
-PNG=-lpng
 
-LIB=$(MTH) $(PNG)
+LIB=$(MTH) 
 
 ###############################################################################
 # MÓDULOS Y PROGRAMAS                                                         #

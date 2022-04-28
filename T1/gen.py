@@ -1,11 +1,11 @@
 import os
 __author__ = 'Juampisaez'
 """
-Este archivo es para generar los 18 outputs de la T1-2021-1 de EDD.
+Este archivo es para generar los 10 outputs de la T1-2021-2 de EDD.
 Instrucciones:
-Dentro de la carpeta de la T1-2021-1 deben estar este archivo python junto a la carpeta 'tests', 
+Dentro de la carpeta de la T1-2021-2 deben estar este archivo python junto a la carpeta 'tests', 
 la cúal contiene a las carpetas easy, medium y hard con los respectivos .png de inputs.
-El test mas largo demora 3 segundos en mi pc.
+El test mas largo demora 5 segundos en mi pc.
 """
 
 if not os.path.exists(f"output/easy/"):

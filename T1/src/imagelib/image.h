@@ -1,5 +1,9 @@
 #pragma once
-
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <png.h>
+#include <math.h>
 
 struct image
 {

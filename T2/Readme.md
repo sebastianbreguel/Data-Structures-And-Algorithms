@@ -20,3 +20,13 @@ Para optimizar el tiempo de ejecucion de tarea, puedes modificar el Makefile cam
 Para la implementacion del codigo de backtracking, se uso como base un algoritmo para el problema de:
 ### The Knight’s tour problem
 Esto se hizo para tomar la estructura base del algoritmo de backtracking, para luego de esto adapatarlo al problema especifico solicitado, esto se encuentra en el archivo de back_functions.c. El algoritmo, que de base fue sacado es el siguiente [link](https://www.codesdope.com/course/algorithms-knights-tour-problem/)
+
+
+### Python files
+
+- Check_backtracking:
+    -This file check if the backtracking ouput is consistent and correct.
+- Check_hash.py:
+    - This file check the hash of the words and if they are correct.
+- script_general:
+    - This file run both check_x.py with all the tests.
