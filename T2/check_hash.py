@@ -1,5 +1,6 @@
 import sys
 
+
 # Script que checkea si la solucion es correcta
 def check_solve(test, obtained):
     map_dict = dict()
@@ -15,6 +16,7 @@ def check_solve(test, obtained):
             map_dict[a] = b
     return True
 
+
 # script to score solutions
 def get_score(input_file, output_file, carpet, number):
     f_input = open(input_file, "r")
@@ -29,15 +31,15 @@ def get_score(input_file, output_file, carpet, number):
         # print(query_id)
         query = f_input.readline().strip().split(" ")[1]
         indices = f_output.readline().strip().split(" ")
-        obtained_substring = original_string[int(indices[0]):int(indices[1])+1]
+        obtained_substring = original_string[int(indices[0]) : int(indices[1]) + 1]
         result = check_solve(query, obtained_substring)
         if result:
-            passed+=1
+            passed += 1
         else:
-            failed.append(query_id+1)
+            failed.append(query_id + 1)
     # print(f"Score: {passed}/{query_ammount} ==> {round(passed/query_ammount *100, 2)}%\n")
     # if(passed/query_ammount) != 1:
-        # print(f"Lista Fallas (N° de linea en el output): {failed}")
+    # print(f"Lista Fallas (N° de linea en el output): {failed}")
     with open(f"reports/hash/{carpet}/report_{number}.txt", "w") as out:
         out.write(f"Score: {passed}/{query_ammount} ==> {round(passed/query_ammount *100, 2)}%\n")
         out.write(f"Lista Fallas (N° de linea en el output): {failed}")
@@ -45,10 +47,14 @@ def get_score(input_file, output_file, carpet, number):
     f_output.close()
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Modo de uso python3 check_hash.py <archivo_consultas> <archivo_output>")
         sys.exit()
-    input_file, output_file, carpet, number = sys.argv[1], sys.argv[2], sys.argv[3],  sys.argv[4]
+    input_file, output_file, carpet, number = (
+        sys.argv[1],
+        sys.argv[2],
+        sys.argv[3],
+        sys.argv[4],
+    )
     get_score(input_file, output_file, carpet, number)

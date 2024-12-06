@@ -2,14 +2,17 @@ import os
 import sys
 from math import sqrt
 
+
 class Node:
     def __init__(self, col, row):
         self.col = col
         self.row = row
         self.edges = []
         self.visited = False
+
     def add_edge(self, node):
         self.edges.append(node)
+
 
 class MST:
     def __init__(self, max_range):
@@ -17,14 +20,14 @@ class MST:
         self.max_range = max_range
         self.nodes = []
         self.edges = []
-    
+
     def add_node(self, node):
         self.nodes.append(node)
         self.V += 1
-    
+
     def add_edge(self, node1, node2):
         self.edges.append((node1, node2))
-    
+
     def get_node(self, col, row):
         # no se puede asumir orden de los nodos
         for node in self.nodes:
@@ -47,7 +50,7 @@ class MST:
                         stack.append(edge)
                         cost += self.manhattan_distance(node, edge)
         return cost
-    
+
     def check_valid(self):
         # check if all nodes are connected
         for node in self.nodes:
@@ -55,17 +58,18 @@ class MST:
                 return False
         return True
 
+
 def build_mst(student_output, V, max_range):
     # the file has the following format
     # a int that represents the number of edges
     # for each edge, there are four ints: node_1_row node_1_col node_2_row node_2_col
-    
-    with open(student_output, 'r') as f:
+
+    with open(student_output, "r") as f:
         mst = MST(max_range)
         line_count = f.readline()
         for i in range(int(line_count)):
             line = f.readline()
-            if line == '':
+            if line == "":
                 break
             col1, row1, col2, row2 = map(int, line.split())
             node1 = mst.get_node(col1, row1)
@@ -81,10 +85,11 @@ def build_mst(student_output, V, max_range):
             mst.add_edge(node1, node2)
     return mst
 
+
 def get_input_nodes(test_file):
     # the file contains a line with a int that represents the max_range, other int with the number of nodes and a final int with a target_cost
     # followed by the nodes in the format: row col
-    with open(test_file, 'r') as f:
+    with open(test_file, "r") as f:
         line = f.readline()
         max_range, V, target_cost = map(int, line.split())
         nodes = []
@@ -113,6 +118,7 @@ def parse_input():
 
     return test_file, student_output
 
+
 def main():
     test_file, student_output = parse_input()
     max_range, V, target_cost, nodes = get_input_nodes(test_file)
@@ -139,4 +145,3 @@ if __name__ == "__main__":
         print("The solution is not correct")
         sys.exit(1)
     print("The solution is correct")
-

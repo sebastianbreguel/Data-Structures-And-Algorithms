@@ -1,11 +1,13 @@
 import sys
 
+
 class Node:
     def __init__(self, pos, col):
         self.pos = pos
         self.col = col
         self.edges = []
         self.visited = False
+
 
 class Graph:
     def __init__(self):
@@ -82,7 +84,7 @@ class Graph:
                 high = mid - 1
             else:
                 low = mid + 1
-        return None    
+        return None
 
     def brute_search_node(self, pos):
         for node in self.nodes:
@@ -90,14 +92,16 @@ class Graph:
                 return node
         return None
 
+
 def build_graph_nodes(graph, file_name):
     with open(file_name) as f:
         amount_nodes = int(f.readline())
         for i in range(amount_nodes):
-                line = f.readline()
-                if line:
-                    pos, col = int(line.split(' ')[0]), line.split(' ')[1].strip('\n')
-                    graph.add_node(pos, col)
+            line = f.readline()
+            if line:
+                pos, col = int(line.split(" ")[0]), line.split(" ")[1].strip("\n")
+                graph.add_node(pos, col)
+
 
 def build_graph_edges(graph, file_name):
     with open(file_name) as f:
@@ -105,7 +109,12 @@ def build_graph_edges(graph, file_name):
         for i in range(amount_edges):
             line = f.readline()
             if line != "":
-                pos_x, col_x, pos_y, col_y = int(line.split(' ')[0]), line.split(' ')[1], int(line.split(' ')[2]), line.split(' ')[3].strip('\n')
+                pos_x, col_x, pos_y, col_y = (
+                    int(line.split(" ")[0]),
+                    line.split(" ")[1],
+                    int(line.split(" ")[2]),
+                    line.split(" ")[3].strip("\n"),
+                )
                 node_x = graph.binary_search_nodes(pos_x)
                 node_y = graph.binary_search_nodes(pos_y)
                 if not node_x or not node_y:
@@ -123,12 +132,13 @@ def build_graph_edges(graph, file_name):
                     print("Error: Node not found")
                     sys.exit(1)
 
+
 def main():
     graph = Graph()
     check_params()
     build_graph_nodes(graph, sys.argv[1])
     build_graph_edges(graph, sys.argv[2])
-    node = graph.find_first_node_without_color('r')
+    node = graph.find_first_node_without_color("r")
     graph.iterative_dfs(node, "r")
     if graph.check_graph("r"):
         print("Blue-Green is connected")
@@ -138,27 +148,27 @@ def main():
 
     graph.clear_visited()
 
-    node = graph.find_first_node_without_color('b')
+    node = graph.find_first_node_without_color("b")
     graph.iterative_dfs(node, "b")
     if graph.check_graph("b"):
         print("Red-Green is connected")
     else:
         print("Red-Green is not connected")
         sys.exit(1)
-    
+
     graph.clear_visited()
-    node = graph.find_first_node_without_color('x')
+    node = graph.find_first_node_without_color("x")
     cost = graph.iterative_dfs_with_cost(node)
 
     print(f"Cost: {cost}")
     return
-    
 
 
 def check_params():
     if len(sys.argv) < 3:
         print("Usage: python check_lights.py <input_file> <output_file>")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     check_params()

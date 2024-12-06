@@ -1,5 +1,6 @@
 import os
-__author__ = 'Juampisaez'
+
+__author__ = "Juampisaez"
 """
 Este archivo es para generar los 10 outputs de la T1-2021-2 de EDD.
 Instrucciones:
@@ -9,16 +10,15 @@ El test mas largo demora 5 segundos en mi pc.
 """
 
 if not os.path.exists(f"output/easy/"):
-		os.makedirs(f"output/easy/")
+    os.makedirs(f"output/easy/")
 if not os.path.exists(f"output/medium/"):
-		os.makedirs(f"output/medium/")
+    os.makedirs(f"output/medium/")
 if not os.path.exists(f"output/hard/"):
-		os.makedirs(f"output/hard/")
+    os.makedirs(f"output/hard/")
 os.system(f"time ./potterphoto tests/easy/river.png output/easy/outriver.png  markers/easy/MarkerRiver.png  0.4")
 os.system(f"time ./potterphoto tests/easy/plant.png  output/easy/outplant.png  markers/easy/MarkerPlant.png  0.2")
 os.system(f"time ./potterphoto tests/easy/sans.png  output/easy/sans.png  markers/easy/sans_marker.png  0.3")
 os.system(f"time ./potterphoto tests/easy/eyeLeash.png  output/easy/outEyeLeash.png  markers/easy/MarkerEyeLeash.png 0.3  1")
-
 
 
 os.system(f"time ./potterphoto tests/medium/mona_lisa.png  output/medium/outMona.png  markers/medium/MarkerMonaLisa.png 0.3")

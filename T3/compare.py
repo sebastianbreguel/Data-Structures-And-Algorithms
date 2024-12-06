@@ -3,8 +3,8 @@ import os
 __author__ = "Sebastian Breguel"
 __email__ = "sebabreguel@uc.cl"
 
-tests = ["easy","normal","hard"]
-indices = ["0","1","2","3"]
+tests = ["easy", "normal", "hard"]
+indices = ["0", "1", "2", "3"]
 
 for i in range(3):
     for j in range(4):
